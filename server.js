@@ -9,13 +9,11 @@ app.post('/incoming-sms', (req, res) => {
     const incomingMsg = req.body.Body.trim().toUpperCase();
     const fromNumber = req.body.From;
 
-    console.log(`Incoming from ${fromNumber}: ${incomingMsg}`);
-
     if (incomingMsg === 'YES') {
-        console.log(`✅ Candidate ${fromNumber} replied YES`);
+        console.log(fromNumber); // ✅ Only log candidate's number
     }
 
-    // Optional reply to the sender
+    // Optional reply
     const twiml = new MessagingResponse();
     twiml.message('Thanks for your response!');
     res.writeHead(200, { 'Content-Type': 'text/xml' });
