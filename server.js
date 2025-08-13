@@ -15,7 +15,7 @@ app.post('/incoming-sms', async (req, res) => {
     console.log(`Triggering webhook: ${fromNumber} -> ${incomingMsg}`);
 
     try {
-      const response = await fetch('https://api.truckerhire.ai/api/v1/receive-candidate-response-sms', {
+      const response = await fetch('https://uat.api.truckerhire.ai/api/v1/receive-candidate-response-sms', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
